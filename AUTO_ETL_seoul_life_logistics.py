@@ -7,11 +7,9 @@ import requests
 import pandas as pd
 import calendar
 from io import BytesIO
-import time
 import json
 from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor
-import platform
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
@@ -47,14 +45,14 @@ def fetch_data(url):
 
 
 def api_call(url, key):
-    print(url)
+    # print(url)
     res = requests.get(url)
     data = res.json()
 
     if 'RESULT' in data.keys():
-        print(url)
-        print("이상")
-        print(data['RESULT'])
+        # print(url)
+        # print("이상")
+        # print(data['RESULT'])
         return pd.DataFrame()
     return pd.DataFrame(data['seoulGuGu']['row'])
 
@@ -223,19 +221,17 @@ def main():
                        'SIDO_SEOUL': ["http://openapi.seoul.go.kr:8088/"+seoul_api_key+"/json/sidoSeoulgu/", "SIDO_SEOULGU"]}
 
         for folder in folder_list:
-            print(folder)
             folder_path = 'Seoul-Life-Logistics/'+folder
             missing_month = check(bucket_name, folder, lastmonth)
             if len(missing_month) > 0:
                 for now_month in missing_month:
-                    print(now_month)
+                    print(folder+" "+now_month)
                     # makemonthdf(folder_name, url, month_list)
                     df = makemonthdf(
                         folder, folder_dict[folder][0], now_month)
                     file_name = "DWC_KXLCLS_OD_DAY_" + \
                         folder_dict[folder][1]+"_"+now_month+".csv"
                     # savecsv(df, file_name, bucket_name, folder_name):
-                    print(type(df))
                     savecsv(df, file_name, bucket_name, folder_path)
 
 
