@@ -51,7 +51,7 @@ Python, SQL 언어로 데이터를 전처리할 수 있습니다.<br>
 ### 분석 테이블 설계
 - 김동연 : 수집 데이터 테이블 설계
 ### ETL 프로세스(데이터 수집, 전처리, 클라우드 스토리지 저장, 데이터웨어하우스 적재)
-- 이서림 : `우편 물류 데이터(구/동)`
+- 이서림 : `우편 물류 데이터(구/동)` - [파일 일괄 다운로드 및 GCS에 업로드](https://github.com/Logistics-Devcourse/Data-ETL/blob/main/csv_transform/download_files.py)
 - 정세욱 : `지역별 인구 수`
 - 최은서 : `서울시 생활 물류 데이터` - [스크립트 파일로 자동화(데이터 수집 및 전처리, 클라우드 스토리지 저장)](https://github.com/Logistics-Devcourse/Data-ETL/blob/main/AUTO_ETL_seoul_life_logistics.py)<br>
             `우편 물류 데이터(시/도)` - [데이터 수집 및 전처리](https://github.com/Logistics-Devcourse/Data-ETL/blob/main/Scrapping_sido_delivery_info.ipynb)
